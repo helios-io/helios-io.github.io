@@ -1,56 +1,45 @@
 ---
 layout: default
-title: Welcome!
-description: This is my site. Welcome.
-keywords: github pages, Jekyll, foundation 5
+title: Home
+description: Overview of the Helios Framework project.
+keywords: helios, netty, socket, middleware
 ---
 
-<h1 class="mvl">Whoa! Jekyll, Foundation 5, HTML5 boilerplate and github pages!</h1>
-
+<h1 class="mvl">Helios - Reactive socket middleware for .NET</h1>
 
 <div class="row">
-	<div class="medium-9 large-7 small-centered column">
-		
-		<p class="mbm">I've combined my locally installed <a href="http://foundation.zurb.com/docs/sass.html">libsass/grunt version of foundation 5</a>, <a href="http://html5boilerplate.com/">html5 boilder plate</a>, and Jekyll to be used for github pages! See <a href="http://jekyllrb.com/docs/home/">Jekyll's documentation</a>, <a href="http://foundation.zurb.com/docs/">the foundation documentations</a>, and <a href="https://help.github.com/categories/20/articles">GitHub pages help pages</a>.</p>
+	<div class="large-12 columns">
+		<h4 class="subheader">Build high-peformance network applications easily and powerfully.</h2>		
+		<p>Helios is a <a href="http://netty.io/">Netty</a>-inspired library that makes it easy for .NET developers to create high throughput applications on top of network protocols like TCP, UDP, and more.</p>
+	</div>
+</div>
 
-		<p class="mbl">You can see all <a href="https://github.com/daigofuji/jekyll-foundation-5-starter/tree/gh-pages"><i class="fa fa-github"> 	
-		</i> my sources here</a>. I created this for my personal use, but if you'd like to use it, please feel free. Shout out <a href="http://daigo.org">daigo.org</a> or <a href="http://twitter.com/DaigoFuji">@DaigoFuji</a> are appreciated, but not required.</p>
-
-		<div class="panel radius mvl">
-			<p>You should probably update the <samp>_config.yml</samp> file, and edit <samp>scss/_setting.scss</samp> file. As well as <samp>scss/_custom.scss</samp>, where most the overrides are happening.</p>
+<div class="radius">
+	<div class="row">	 
+		<div class="large-3 small-6 columns">
+			<h4 class="panel">Powerful APIs</h4>
+			<p>Takes the complexity out of socket programming with intelligent I/O, concurrency, buffer management, and pipelining APIs.</p>
 		</div>
-
-
-
+		<div class="large-3 small-6 columns">
+			<h4 class="panel">Event-Driven</h4>
+			<p>Helios is <a href="http://reactivemanifesto.org/">Reactive</a> - it uses a event-driven architecture to simplify development and build responsive systems that scale.</p>
+		</div>
+		<div class="large-3 small-6 columns">
+			<h4 class="panel">Performant</h4>
+			<p>Performance is a cross-cutting concern we factor in at every level in the design of the framework in order to eliminate overhead for your apps and clients.</p>
+		</div>
+		<div class="large-3 small-6 columns">
+			<h4 class="panel">Battle-Tested</h4>
+			<p>Helios powers the clustering and remoting capbilities built into <a href="http://getakka.net/">Akka.NET</a> and more.</p>
+		</div> 
 	</div>
-</div>
-
-
-<div class="row"> 
-
-	<div class="large-4 columns">
-		<p><a href="page-html-unit-test.html">foundation-example.html</a> shows how all the html tags are rendered. Foundation takes care of those out of the box.</p>
-	</div>
-
-	<div class="large-4 columns">
-		<p>Another example are shown in <a href="page-foundation-example.html">foundation-example.html</a>. </p>
-	</div>
-
-	<div class="large-4 columns">
-		<p>And finally, foundation's grid system, <a href="page-template-example.html">page-template-example</a> You can also <a href="http://foundation.zurb.com/templates.html">get more templates</a> from foundations home.</p>
-	</div>
-
 </div>
 
 <div class="row">
-	<div class="medium-9 large-7 small-centered column">
-	
-		<p class="mvl">And out of the box, this supports <a href="http://fortawesome.github.io/Font-Awesome/">
-		<i class="fa fa-flag fa-lg">	
-		</i>
-		font awesome</a>, so you can go crazy with <a href="http://fortawesome.github.io/Font-Awesome/icons/">the icons</a>: <i class="fa fa-bitcoin fa-lg">	
-		</i> <i class="fa fa-cog fa-spin fa-lg">
-		</i>. </p> 
-
+	<div class="large-12 columns">
+		<hr/>
+		<h4 class="subheader">Helios 2.0 is underway. Get involved!</h2>		
+		<p>The specifications for Helios 2.0 are now public and we are openly calling for contributors.</p>
+		<strong><a href="specs" class="small button">Get involved!</a></strong>
 	</div>
 </div>

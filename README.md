@@ -1,66 +1,74 @@
-jekyll-foundation-5-starter
+Helios Project Official Website
 ===========================
 
-Start [a github pages](https://pages.github.com/) website powerd by [Jekyll](http://jekyllrb.com/docs/quickstart/) using [Foundation/SCSS](http://foundation.zurb.com/docs/sass.html) in under 5 minutes! 
+#Getting started
 
-### What it is.
+## Local usage
 
-Ever wanted a simple but nice looking responsive website as your project page or page for your repo? Are you in [a hackathon](http://baseballhackday.com) needing to put up a working website in munites? I do. Here is what I do, and I am sharing for you to use it, free. Free as in free speach AND free beer.
+### Install Ruby
+If you don't already have Ruby installed, we recommend using [RailsInstaller](http://railsinstaller.org/en) to get it up and running on your system.
 
-You can see [the working example site here](http://daigofuji.github.io/jekyll-foundation-5-starter/)
+### Install Node.JS
 
-### For User & Organization Pages
-See [documentation](https://help.github.com/articles/user-organization-and-project-pages/)
+Follow the instructions on this page https://github.com/joyent/node/wiki/Installation
 
-1. Fork this repo to your user or project
-2. From the `settings` rename the repo to `username.github.io` naming scheme.
+### Clone the repository.
+```
+> git clone https://github.com/akkadotnet/getakka.net.git getakkanet
+> cd getakkanet
+```
 
-### For Project Pages
-See [documentation](https://help.github.com/articles/user-organization-and-project-pages/#project-pages)
+### Make sure `grunt-cli` is installed
+```
+> npm install -g grunt-cli
+```
 
-1. Create a `gh-pages` branch, i.e. `git checkout -b gh-pages`
-2. [Download the contents of this repo](https://github.com/daigofuji/jekyll-foundation-5-starter/archive/master.zip)
-3. Replace the entire branch contents with unzipped stuff
-4. Add, Commit then Publish the branch to github, i.e. `git push --set-upstream origin gh-pages`
+### Build the site
 
-### To edit contents:
-1. edit `_config.yml`
-2. edit html/md files (hint: `_layouts/default.html` is the base)
-3. edit sass and run `grunt` (hint: Try [editing `scss/_stettings.scss`](http://foundation.zurb.com/docs/using-sass.html))
-4. edit `_include/nav.html` 
+Run Jekyll locally via
 
-Use at your own resk, and follw licence restriction of each products used. Most are MIT (OK to use commercially).
+```
+> bundle exec jekyll serve --watch
+```
 
-### Useful command:
+or
 
-Run grunt to compile css from sass by simply run 
-
-`grunt`
-
-from your terminal. It will launch watch. <code>control-c</code> to stop.
-
-You need to have grunt installed. <a href="http://daigo.org/2013/11/installing-npm-on-mavericks-macbook-pro/">This blog post</a> may be useful if you are like me and running Mac OS X.
-
-To run jekyll locally, run 
-
-`bundle exec jekyll serve --watch`
+```
+> jekyll serve
+```
 
 Your website should be viewable by going to [localhost:4000](http://localhost:4000/)
 
-If you want to make sure foundation is up to date, try 
+### Live reloads
+When running the site locally, the grunt script will be watching the `/src/` folder for changes.
+If any change is detected, this will trigger a regeneration of the content and your browser will be live reloaded.
 
-`foundation update`
+## Making style changes
+Edit the appropriate file in `/_scss`. The SCSS files then get compiled automatically by `grunt-contrib-compass` into the `screen.css` file.
 
-(requires bower)
+#### Rebuild CSS from SASS
 
-Github's doc on <a href="https://help.github.com/articles/using-jekyll-with-pages">how to use Jekyll on Github Pages</a>. 
+Run grunt to compile css from sass by simply run 
 
+```
+> grunt
+```
 
-### Special Thanks
+from your terminal. It will launch watch. <code>control-c</code> to stop.
 
-Special thanks to <a href="https://github.com/h5bp/html5-boilerplate">HTML 5 Boilerplate</a> whose code I have based this on.
+## Adding data
+In short, to add sitewide data you can add it to `src/_data/site.yml` and it will then be accessible via handlebars in all templates. For example, `site.yml` defines `url`, which is then accessed in the templates like so: `{{site.url}}`.
 
-@kionoshp's <a href="https://github.com/kianoshp/SASS-CSS-Boilerplate">padding-margin</a>. Because it has become part of every site that I manage. 
+For more details / advanced usage, read the docs on [`options.data`](http://assemble.io/docs/options-data.html).
 
-and <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a> for bing awesome. 
+## Contributing to the documentation
 
+Contributions to the wiki documentation can be done in a few different ways;
+
+Fork and Clone this repository, then apply your modifications to the files inside `src/wiki/`.
+`Commit` and `Push` your changes back to your Github Fork and create a pull request.
+See `Local usage` for more info on how to preview your local changes.
+
+Or.
+You can use the `Edit on Github` link on each Wikipage on the live site, this will take you to an edit mode version of the page here on github.
+If you do not have commit rights for this repository, Github will allow you to do an ad hoc pull request right there.

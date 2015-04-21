@@ -50,26 +50,26 @@
         <![endif]-->
 
     <header id="header" class="row">
-
-        <div class="small-12 columns">
-            <section class="right show-for-medium-up mam">
+      <div class="row">
+        <div class="large-12 columns">
+         
+          <nav class="top-bar" data-topbar>
+          <ul class="title-area">           
+          <li class="name">
+          <h1><a href="{{ site.url }}">{{ site.brand }}</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon">
+          <a href="#"><span>menu</span></a>
+          </li>
+          </ul>
+          <section class="top-bar-section">
                 <ul class="inline-list">
                     {% include nav.html %}
                 </ul>
             </section>
-
-            <section class="right show-for-small">
-                <ul class="inline-list mam">
-                <li>
-                    <a class="right-off-canvas-toggle"><i class="fa fa-bars fa-lg">
-                    </i></a>
-                </li>
-                </ul>
-            </section>
-
-            <h1><a href="{{ site.url }}">{{ site.brand }}</a></h1>
-
+          </nav> 
         </div>
+      </div>
     </header>
 
         <!-- Off Canvas Menu -->
@@ -90,21 +90,28 @@
             </div>
           </section>
         </div>
-        
 
-        <footer class="site-footer row" role="contentinfo">
-        <hr/>
+
+        <footer class="row">
           <div class="large-12 columns">
-            <ul class="inline-list">
-                {% include nav.html %}
-            </ul>
-            <p class="quiet copyright right"> <a href="https://twitter.com/{{ site.twitter }}">
+            <hr>
+            <div class="row">
+              <div class="large-6 columns">
+                <p>© Copyright 2013-2015 Aaron Stannard.</p>
+              </div>
+              <div class="large-6 columns">
+                <ul class="inline-list right">
+                 {% include nav.html %}
+                </ul>
+              </div>
+            </div>
+            <p class="quiet copyright centered-text"> <a href="https://twitter.com/{{ site.twitter }}">
                 <i class="fa fa-twitter">
                 </i>
              @{{ site.twitter }}</a>, <a href="https://github.com/{{ site.github }}/">
                 <i class="fa fa-github">
                 </i>
-             @{{ site.github }}</a> {{ site.year }}.</p>
+             @{{ site.github }}</a>.</p>
           </div>
         </footer>
 
@@ -136,6 +143,7 @@
       ga('send', 'pageview');
     </script>
 
+    <a href="http://www.reactivemanifesto.org/"> <img style="border: 0; position: fixed; right: 0; top:0; z-index: 9000" src="//d379ifj7s9wntv.cloudfront.net/reactivemanifesto/images/ribbons/we-are-reactive-white-right.png"> </a>
 
   </body>
 </html>
