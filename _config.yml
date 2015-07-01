@@ -9,6 +9,9 @@ author : Aaron Stannard
 analytics : 
 year : 2015
 
+# Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
+google_analytics: UA-2285755-8
+
 
 #
 # !! You don't need to change any of the configuration flags below !!

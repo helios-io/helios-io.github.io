@@ -35,3 +35,18 @@ Our design concerns consist of two cross-cutting concerns across three layers.
 ### Performance
 Performance is a cross-cutting concern - it must be evaluated and tested at every level. Per some of the best practices recommended in *[Writing High-Performance .NET Code](http://www.amazon.com/gp/product/0990583430/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0990583430&linkCode=as2&tag=jiidevsblo-20&linkId=CMQQ7W3DQSIO2ZJN">Writing High-Performance .NET Code</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=jiidevsblo-20&l=as2&o=1&a=0990583430)*, the Helios team will make a habit of setting, measuring, and documenting quantifiable performance goals with each release via the build server.
 
+### Security
+Helios 2.0 will have full support for [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security "Transport Layer Security") and, eventually, [DTLS](https://en.wikipedia.org/wiki/Datagram_Transport_Layer_Security "Datagram Transport Layer Security") for UDP.
+
+### Developer API
+Helios' goal is to simplify the process of socket programming by exposing a layered approach to reading and writing messages to and from the network. Therefore, in the spirit of the Netty project we will be introducing a pipeline-style API that makes it easy for developers to extend and implement their own handlers for each stage in the message-handling process.
+
+> This will include full support for the [TPL](https://msdn.microsoft.com/en-us/library/dd460717(v=vs.110).aspx "Task Parallel Library (TPL)") inside individual `ChannelHandler` steps.
+
+### Concurrency API
+Part and parcel with Helios' goal of simplifying socket programming for .NET developers must also include making it feasible to support multiple concurrent socket operations simultaneously. Adding tunable degrees of parallelism inside Helios and exposing tools to make it easy to specify how Helios clients or servers should behave will continue to be a major portion of the Helios project in 2.0.
+
+### I/O API
+Helios 2.0 will use [`SocketAsyncEventArgs`](https://msdn.microsoft.com/en-us/library/system.net.sockets.socketasynceventargs) and all of the latest APIs in .NET 4.5 for performing asynchronous I/O across all socket implementations.
+
+<strong><a href="api.html" class="small button">Read the API specifications</a></strong>

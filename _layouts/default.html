@@ -133,15 +133,7 @@
     <script src="{{ site.baseurl }}/bower_components/foundation/js/foundation.min.js"></script>
     <script src="{{ site.baseurl }}/js/script.js"></script>
 
-    <!-- Google Analytics -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', '{{ site.analytics }}', 'auto');
-      ga('send', 'pageview');
-    </script>
+    {% include analytics.html %}
 
     <a href="http://www.reactivemanifesto.org/"> <img style="border: 0; position: fixed; left: 0; top:0; z-index: 9000" src="//d379ifj7s9wntv.cloudfront.net/reactivemanifesto/images/ribbons/we-are-reactive-blue-left.png"> </a>
 
