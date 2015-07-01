@@ -48,3 +48,5 @@ Part and parcel with Helios' goal of simplifying socket programming for .NET dev
 
 ### I/O API
 Helios 2.0 will use [`SocketAsyncEventArgs`](https://msdn.microsoft.com/en-us/library/system.net.sockets.socketasynceventargs) and all of the latest APIs in .NET 4.5 for performing asynchronous I/O across all socket implementations.
+
+<strong><a href="api.html" class="small button">Read the API specifications</a></strong>

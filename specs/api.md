@@ -31,7 +31,7 @@ An `IChannelHandler` implementation can be anything that occurs during the norma
 
 An `IChannelHandler` can be anything involved in the process of working with each remote host connected to the underlying `ITransport` - and Helios will provide a number of built-in `IChannelHandler` implementations for performing routine functions such as [message framing](http://www.codeproject.com/Articles/37496/TCP-IP-Protocol-Design-Message-Framing "TCP/IP Protocol Design: Message Framing").
 
-## How many `IChannel` instances are created per `ITransport`?
+### How many `IChannel` instances are created per `ITransport`?
 In server-side scenarios, **`ServerChannel`s have the ability to create child `IChannel` instances for each remote host** - this allows server-side developers to write their `IChannelHandler` implementations for working with a single host, thus an `AuthenticationChannelHandler` only needs to worry about authenticating a single user, versus authenticating potentially thousands.
 
 This is, fundamentally, a much simpler programming model.
@@ -54,4 +54,52 @@ Consider the following scenario:
 5. The user-defined `IChannelHandler` does something with the C# object passed into it from earlier, and the operation is complete for that individual message.
 6. This process gets repeated 9 more times for each of the messages that were decoded by the `LengthFrameDecoder`.
 
-Before we can read any additional messages for the socket, steps 2-3 will need to be
+Before we can read any additional bytes from the socket, we have to finish processing all of the individual messages decoded by the `LengthFrameDecoder` (or write our own `IChannelHandler`s that can use them in batch.)
+
+Here's what that process might look like, animated:
+
+<div class="row">
+	<div class="large-12 columns small-centered" style="text-align:center;">
+			<img src="images/helios-decoding-pass.gif" alt="Helios decoding pass"/>
+	</div>
+</div>
+
+### All `IChannelHandler` implementations can respond to multiple types of channel events
+There are lots of different types of events that may occur in within the channel:
+
+1. Read
+2. Write
+3. Open
+4. Bind
+4. Close
+5. Disconnect
+6. User-defined events.
+
+Each `IChannelHandler` must have an implementation for each of the event handlers for these types of events, although some `IChannelHandler` implementations may choose not to do much of anything during some of these events. What's a `LengthFrameEncoder` going to do during a close event?
+
+The `IChannelHandler` interface looks like this:
+
+```csharp
+public interface IChannelHandler{
+	void ChannelRead(ChannelHandlerContext context, object msg);
+	void Write(ChannelHandlerContext context, object msg, ChannelPromise promise);
+	void Connect(ChannelHandlerContext context, IpAddress address, ChannelPromise promise);
+	void Disconnect(ChannelHandlerContext context, ChannelPromise promise);
+}
+```
+
+> **N.B.** This is not the final design of the `IChannelHandler` interface, but an approximation of it for the sake of documenting the spec.
+
+An implementation of this interface that didn't handle any outbound writes, such as a decoder / deserializer, might have the following implementation:
+
+```csharp
+public class DownStreamChannelHandler : IChannelHandler{
+	public void Write(ChannelHandlerContext context, object msg, ChannelPromise promise){
+		context.Write(msg, promise); //forward msg onto the next handler in the pipeline
+	}
+
+	// other IChannelHandler implementations
+}
+```
+
+### All operations against an `IChannel` are asynchronous
